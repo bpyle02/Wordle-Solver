@@ -7,11 +7,7 @@ bool sortWords(const pair<string, int>& a, const pair<string, int>& b)
 
 WordleSolver::WordleSolver() : charFreq(26)
 {
-	double guessTotal = 0;
-	double avg;
-	int iterator = 0;
 	guess = "";
-	int numLosses = 0;
 
 	for (int i = 0; i < 26; i++)
 		charFreq[i] = { 0, 0, 0, 0, 0 };
@@ -22,49 +18,7 @@ WordleSolver::WordleSolver() : charFreq(26)
 	}
 
 	getWordList();
-	//initFrequency();
-	//printFrequency();
-
-	//while (iterator < 1000)
-	//{
-		getWordScore("possibleWordleGuessesWithFrequencies.txt");
-
-		setWordle("input");
-		//printWordsWithFreq();
-
-		while (!gameWon && guessNum < 6)
-		{
-			if (guessNum == 0)
-				makeGuess("slate");
-			else
-				makeGuess();
-
-			eliminateWords();
-			//updateFrequency();
-			//printWordsWithFreq();
-			gameOver();
-		}
-
-		if (gameWon)
-			cout << "Congratulations, you guessed the wordle!" << endl << endl;
-		else
-		{
-			cout << "Oops, better luck next time!" << endl << endl;
-			numLosses++;
-		}
-
-	//		guessTotal += guessNum;
-
-	//		iterator++;
-
-	//		resetVals();
-	//}
-
-	//avg = guessTotal / 1000;
-
-	//cout << "Wordle Solver guessed the wordle in " << avg << " number of guesses on average." << endl;
-	//cout << "Wordle Solver lost " << numLosses << " games." << endl;
-
+	getWordScore("possibleWordleGuessesWithFrequencies.txt");
 }
 
 void WordleSolver::getWordList()
@@ -518,4 +472,14 @@ void WordleSolver::resetVals()
 	
 	for (int i = 0; i < 5; i++)
 		green[i] = '0';
+}
+
+bool WordleSolver::getGameWon()
+{
+	return gameWon;
+}
+
+int WordleSolver::getGuessNum()
+{
+	return guessNum;
 }

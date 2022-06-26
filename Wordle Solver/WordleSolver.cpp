@@ -231,7 +231,7 @@ void WordleSolver::setWordle(string w)
 	else
 		wordle = w;
 
-	cout << "Wordle: " << wordle << endl << endl;
+	//cout << "Wordle: " << wordle << endl << endl;
 }
 
 string WordleSolver::getBestGuess()
@@ -469,6 +469,8 @@ void WordleSolver::resetVals()
 	yelloww.clear();
 	isGameOver = false;
 	gameWon = false;
+
+	getWordScore("possibleWordleGuessesWithFrequencies.txt");
 	
 	for (int i = 0; i < 5; i++)
 		green[i] = '0';
@@ -482,4 +484,9 @@ bool WordleSolver::getGameWon()
 int WordleSolver::getGuessNum()
 {
 	return guessNum;
+}
+
+string WordleSolver::getWordle()
+{
+	return wordle;
 }

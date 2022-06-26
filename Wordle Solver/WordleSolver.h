@@ -36,7 +36,6 @@ class WordleSolver
 
 	//Helper Functions
 	string getRandomWordle();
-	void resetVals();
 
 public:
 	//Constructor
@@ -55,6 +54,7 @@ public:
 	void getGuessResults();
 	void eliminateWords();
 	void updateFrequency();
+	void resetVals();
 	void gameOver();
 
 	//Print Functions
@@ -65,4 +65,5 @@ public:
 	//Getters
 	bool getGameWon();
 	int getGuessNum();
+	string getWordle();
 };
